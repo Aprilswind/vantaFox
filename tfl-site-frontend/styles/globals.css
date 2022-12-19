@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap');
+@tailwind base;
+*{
+    @apply font-bakback
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body{
+    @apply dark:bg-main;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+.about__section{
+ background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.home-page-wrapper{
+ margin-top: 130px;
+ z-index: 30;
+}
+.navlink{
+ position: relative;
+ transition: all 0.25s;
+}
+.navlink::before{
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ margin: auto;
+ width: 0%;
+ content: '.';
+ color: transparent;
+ background: #db4642;
+ height: 2px;
+ transition: all 0.25s;
+}
+.navlink:hover::before{
+ width: 100%;
+}
+.nav-icon-5{
+ width: 35px;
+ height: 30px;
+ margin: 10px 10px;
+ position: relative;
+ cursor: pointer;
+ display: inline-block;
+}
+.nav-icon-5 span{
+ background-color:white;
+ position: absolute;
+ border-radius: 2px;
+ transition: .2s cubic-bezier(.8, .5, .2, 1.4);
+ width:100%;
+ height: 4px;
+ transition-duration: 500ms
+}
+.nav-icon-5 span:nth-child(1){
+ top:0px;
+ left: 0px;
+}
+.nav-icon-5 span:nth-child(2){
+ top:13px;
+ left: 0px;
+ opacity:1;
+}
+.nav-icon-5 span:nth-child(3){
+ bottom:0px;
+ left: 0px;
+}
+.nav-icon-5.open span:nth-child(1){
+ transform: rotate(45deg);
+ top: 13px;
+}
+.nav-icon-5.open span:nth-child(2){
+ opacity:0;
+}
+.nav-icon-5.open span:nth-child(3){
+ transform: rotate(-45deg);
+ top: 13px;
+}
+
+
+
+  @keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+   }
+    100% {
+        transform: rotate(360deg);
+   }
+}
+.gradient {
+    
+    --size: 250px;
+    --speed: 50s;
+    --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+    /* z-index: 10; */
+    width: var(--size);
+    height: var(--size);
+    filter: blur(calc(var(--size) / 5));
+    background-image: linear-gradient(#37eba9, #5b37eb);
+    animation: rotate var(--speed) var(--easing) alternate infinite;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    /* position: relative; */
+    opacity: 0.4;
+}
+
+.about__container{
+    position: relative;
+}
+.gradient
+{
+    position: absolute;
+    /* left:  0; */
+}
+
+@media (min-width: 720px) {
+    .gradient {
+        --size: 500px;
+   }
+}
+
+  
+  /* This is just to transition when you change the viewport size. */
+  * {
+    transition: all 0.25s ease-out;
+  }
+  
+
+@tailwind components;
+@tailwind utilities;
